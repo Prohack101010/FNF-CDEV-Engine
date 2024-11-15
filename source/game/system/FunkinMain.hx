@@ -81,11 +81,12 @@ class FunkinMain extends Sprite
 		super();
 		instance = this;
 
-		#if android
-		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
+		#if mobile
+	        #if android
+		SUtil.doPermissionsShit();
+		#end
+		Sys.setCwd(SUtil.getStorageDirectory());
 		Application.current.window.alert("We detected that CDEV Engine is running on Android target, expect things to crash & unstable.", "Warning");
-		#elseif ios
-		Sys.setCwd(LimeSystem.documentsDirectory);
 		#end
 
 		if (stage != null)
