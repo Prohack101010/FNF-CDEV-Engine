@@ -1,0 +1,81 @@
+{
+  "dependencies": [
+    {
+      "name": "lime",
+      "type": "git",
+      "ref": "develop",
+      "url": "https://github.com/mcagabe19-stuff/lime-8.1.3"
+    },
+    {
+      "name": "openfl",
+      "type": "haxelib",
+      "version": "9.2.2"
+    },
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": "5.2.2"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "git",
+      "ref": "dev",
+      "url": "https://github.com/Prohack101010/flixel-addons-psych-d-up-engine"
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": "2.5.0"
+    },
+    {
+      "name": "flixel-tools",
+      "type": "haxelib",
+      "version": "1.5.1"
+    },
+    {
+      "name": "hxcpp",
+      "type":"git",
+      "dir":null,
+      "ref":"master",
+      "url":"https://github.com/mcagabe19-stuff/hxcpp"
+    },
+    {
+      "name":"hxCodec",
+      "type":"git",
+      "dir":null,
+      "ref":"main",
+      "url":"https://github.com/Prohack101010/hxCodec-2.6.0-with-MP4Handler.git"
+    },
+    {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.5.0"
+    },
+    {
+      "name": "hxdiscord_rpc",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/mcagabe19-stuff/linc_luajit-rewriten"
+    },
+    {
+      "name": "flxanimate",
+      "type":"git",
+      "dir":null,
+      "ref":"master",
+      "url":"https://github.com/Dot-Stuff/flxanimate.git"
+    },
+    {
+      "name": "extension-androidtools",
+      "type": "git",
+      "dir": null,
+      "ref": "727693f0a76c6e396df675bb0ed95d7639a4db01",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools"
+    }
+  ]
+}
