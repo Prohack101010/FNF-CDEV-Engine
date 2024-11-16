@@ -1,7 +1,6 @@
 package game.cdev.engineutils;
 
 import game.cdev.log.GameLog;
-import game.system.native.Windows;
 import game.cdev.CDevConfig;
 import flixel.FlxG;
 import haxe.Timer;
@@ -65,7 +64,7 @@ class CDevFPSMem extends TextField
 		while (times[0] < now - 1)
 			times.shift();
 	
-		curMemory = CDevConfig.saveData.nativeMemory ? Windows.getCurrentUsedMemory() : System.totalMemory;
+		curMemory = System.totalMemory;
 		curFps = times.length > CDevConfig.saveData.fpscap ? CDevConfig.saveData.fpscap : times.length;
 		
 		if (curMemory > highestMemory) highestMemory = curMemory;
