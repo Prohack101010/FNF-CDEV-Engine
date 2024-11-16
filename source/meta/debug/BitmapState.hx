@@ -5,7 +5,6 @@ import flixel.graphics.FlxGraphic;
 import game.ImageUtils;
 import openfl.display.BitmapData;
 import cpp.abi.Winapi;
-import game.system.native.Windows;
 import lime.ui.MouseCursor;
 import flixel.addons.ui.FlxUIList;
 import game.objects.HealthIcon;
