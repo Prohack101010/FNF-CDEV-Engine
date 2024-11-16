@@ -1,7 +1,6 @@
 package meta.debug;
 
 import cpp.abi.Winapi;
-import game.system.native.Windows;
 import lime.ui.MouseCursor;
 import flixel.addons.ui.FlxUIList;
 import game.objects.HealthIcon;
@@ -27,25 +26,17 @@ class SystemStatsState extends MusicBeatState
 	}
 
 	var time:Float = 0;
-	var lastCPU:Float = 0;
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
         time+=elapsed;
         if (time > 1) {
-            lastCPU = Windows.getCurrentCPUUsage();
             time = 0;
         }
-        displayText.text = "CPU Usage: " + FlxMath.roundDecimal(lastCPU,2) + "%"
-        + "\n(native) Memory Usage: " + CDevConfig.utils.convert_size(Windows.getCurrentUsedMemory())
-        + "\nFree disk space (cwd): " + FlxMath.roundDecimal(Windows.getCurrentDriveSize(),2) + "GB"
+        displayText.text = "CPU Usage: " + "null%"
 		+ "\n\nPress SPACE for notification test.";
         displayText.screenCenter();
-
-		if (FlxG.keys.justPressed.SPACE){
-			Windows.toast("CDEV Engine", "Finished downloading update!", 0);
-		}
 
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
