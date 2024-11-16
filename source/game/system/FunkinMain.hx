@@ -153,8 +153,6 @@ class FunkinMain extends Sprite
 		});
 		#end
 
-		#if android Android.initialize(); #end
-
 		addChild(new FunkinGame(Std.int(game.gameWidth), Std.int(game.gameHeight), game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 		
 		#if !mobile
