@@ -13,7 +13,6 @@ import flixel.graphics.frames.FlxFilterFrames;
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.BitmapFilterQuality;
 import openfl.filters.GlowFilter;
-import game.system.native.Windows;
 import game.system.FunkinThread;
 import lime.system.System;
 import game.cdev.CDevMods.ModFile;
@@ -114,30 +113,20 @@ class TitleState extends MusicBeatState
 		lol = FlxG.random.bool(0.3);
 		if (lol) trace("nahh :skull:");
 
-		#if windows
 		if (Paths.curModDir.length == 1)
 		{
 			if (!loadMod)
 			{
 				Paths.currentMod = Paths.curModDir[0];
 				loadMod = true;
-			} else{
-				CDevConfig.setWindowProperty(true, "", "");
 			}
-		}
-		else
-		{
-			CDevConfig.setWindowProperty(true, "", "");
 		}
 
 		if (loadMod)
 		{
 			var d:ModFile = Paths.modData();
-
-			CDevConfig.setWindowProperty(false, Reflect.getProperty(d, "window_title"), Paths.modFolders("winicon.png"));
 		}
 		CDevConfig.utils.getStateScript("TitleState", false);
-		#end
 
 		isLoaded = false; // DIE
 
