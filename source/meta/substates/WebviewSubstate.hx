@@ -7,11 +7,15 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import lime.app.Application;
 import sys.thread.Thread;
+#if desktop
 import webview.WebView;
+#end
 
 //todo: Fix game not responding after calling this substatte
 class WebviewSubstate extends MusicBeatSubstate {
+    #if desktop
     var wv:WebView;
+    #end
     var exit:Bool = false;
     public function new(url:String = "https://google.com/"){
         FlxG.autoPause = true;
@@ -27,6 +31,7 @@ class WebviewSubstate extends MusicBeatSubstate {
         add(newText);
         newText.screenCenter();
 
+	#if desktop
         sys.thread.Thread.createWithEventLoop(() ->
 		{
             wv = new WebView(false);
@@ -64,6 +69,7 @@ class WebviewSubstate extends MusicBeatSubstate {
 
             return;
         });
+	#end
     }
 
     override function update(elapsed:Float) {
@@ -78,8 +84,10 @@ class WebviewSubstate extends MusicBeatSubstate {
     }
 
     public function onSubExit() {
+	#if desktop
         wv.terminate();
         wv.destroy();
+	#end
         exit = true;
         FlxG.autoPause = CDevConfig.saveData.autoPause;
     }
