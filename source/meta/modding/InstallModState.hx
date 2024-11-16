@@ -82,7 +82,9 @@ class InstallModState extends meta.states.MusicBeatState
 	override function create()
 	{
 		FlxG.mouse.visible = true;
+		#if desktop
 		DiscordClient.changePresence("Installing a mod.", null);
+		#end
 
 		FlxG.sound.muteKeys = [ZERO, NUMPADZERO];
 		FlxG.sound.volumeDownKeys = [MINUS, NUMPADMINUS];
