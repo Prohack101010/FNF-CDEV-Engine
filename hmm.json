@@ -9,7 +9,7 @@
     },
     {
       "name": "openfl",
-      "type": "haxelib"
+      "type": "haxelib",
       "version": null
     },
     {
