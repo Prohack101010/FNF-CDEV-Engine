@@ -23,60 +23,6 @@ using StringTools;
  */
 class Android
 {
-    public static var requiredPermissions:Array<String> = #if android [
-        Permissions.WRITE_EXTERNAL_STORAGE, 
-        Permissions.READ_EXTERNAL_STORAGE
-    ]; #else []; #end
-
-	/**
-	 * Initialize the Android Class, such as asking for Storage Permission.
-	 */
-	public static function initialize()
-	{
-		#if android
-        var allAccepted:Bool = true;
-        var goToSettings:Bool = false;
-        for (perms in requiredPermissions){
-            if (!Permissions.getGrantedPermissions().contains(perms)){
-                if (VERSION.SDK_INT >= VERSION_CODES.M){
-                    Permissions.requestPermission(perms);
-
-                    if (!Permissions.getGrantedPermissions().contains(perms)){
-                        allAccepted = false;
-                    }
-                } else{
-                    goToSettings = true;
-                    allAccepted = false;
-                }
-            }
-        }
-        if (!allAccepted){
-            var strShit:String = (!goToSettings ? 
-                "Please grant all of the permissions first, CDEV Engine requires Read & Write permission to your storage." :
-                "Please grant CDEV Engine's storage permissions in your apps settings first."
-            );
-            Lib.application.window.alert(strShit, "Permissions");
-            Sys.exit(1);
-        } else{
-            // cwd: /storage/emulated/0/Android/data/com.core5570r.cdevengine/files/
-            var foldersToCreate:Array<String> = [
-                "cdev-mods",
-                "crash",
-                "savedata"
-            ];
-            if (!FileSystem.exists(Sys.getCwd()))
-                FileSystem.createDirectory(Sys.getCwd());
-
-            for (flr in foldersToCreate){
-                var intendedPath:String = Sys.getCwd() + '/${flr}/';
-                if (!FileSystem.exists(intendedPath))
-                    FileSystem.createDirectory(intendedPath);
-                trace("created: " + flr);
-            }
-        }
-		#end
-	}
-
 	/**
 	 * Crash Handler, for android.
 	 * @param crashMessage  Message that will be shown.
