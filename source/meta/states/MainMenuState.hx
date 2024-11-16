@@ -1,6 +1,5 @@
 package meta.states;
 
-import game.system.native.Windows;
 #if android import game.system.native.Android; #elseif ios import game.system.native.IOS; #end
 import game.settings.data.SettingsProperties;
 import meta.modding.week_editor.WeekData;
@@ -216,20 +215,6 @@ class MainMenuState extends MusicBeatState
 				FlxG.camera.zoom = 1.5;
 				FlxTween.tween(FlxG.camera, {zoom: 1}, 1, {ease: FlxEase.cubeOut});
 			}
-		}
-
-		var drvSize:Float = Windows.getCurrentDriveSize();
-		if (drvSize <= 1){
-			new FlxTimer().start(1,(_)->{
-				CDevPopUp.open(this,"Warning!","You have less than 1 GB of free disk space remaining.\nIf you ran out of disk space, this engine might crash while writing stuff to your disk.",[
-					{
-						text: "OK", 
-						callback:() -> {
-							closeSubState();
-						}
-					}
-				], false, true);
-			});
 		}
 
 	}
