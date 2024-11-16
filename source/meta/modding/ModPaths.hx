@@ -179,8 +179,8 @@ class ModPaths
 	{
 		var checkFile:String = 'cdev-mods/' + mod + '/' + key;
 		if (FileSystem.exists(checkFile))
-			return checkFile;
-		return 'cdev-mods/$mod/' + key;
+			return Sys.getCwd() + checkFile;
+		return Sys.getCwd() + 'cdev-mods/$mod/' + key;
 	}
 
 	/*
